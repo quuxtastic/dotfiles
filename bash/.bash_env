@@ -5,10 +5,18 @@ export TERM=bash
 export GUI_TERM=roxterm
 export COLORTERM=yes
 
-export EDITOR=subl
+if [ -z "$NOGUI" ]; then
+    export EDITOR=subl
+else
+    export EDITOR=vim
+fi
 export PAGER=less
 
 export RSYNC_RSH=/usr/bin/ssh
 
-export MERGE_EDITOR=meld-glue.sh
+if [ -z "$NOGUI" ]; then
+    export MERGE_EDITOR=get-meld-glue
+else
+    export MERGE_EDITOR=vim
+fi
 export SVN_MERGE=$MERGE_EDITOR

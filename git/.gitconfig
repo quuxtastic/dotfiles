@@ -12,18 +12,18 @@
     ui = auto
 
 [merge]
-    tool = meld
+    tool = git-meld-glue
 
 [status]
     relativePaths = true
 
-[diff]
-    tool = diffuse
-    suppressBlankEmpty = true
-    mnemonicprefix = true
+#[diff]
+#    tool = diffuse
+#    suppressBlankEmpty = true
+#    mnemonicprefix = true
 
-[web]
-    browser = google-chrome
+#[web]
+#    browser = google-chrome
 
 [push]
     default = tracking

@@ -1,11 +1,15 @@
 # skip if not running interactively
 [ -z "$PS1" ] && return
 
+# machine-specific stuff that controls bashrc needs to go in here.
+# notably, setting NOGUI changes several options
+[ -f "$HOME/.bashrc_local.pre" ] && source "$HOME/.bashrc_local.pre"
+
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 export HISTCONTROL=ignoreboth
 
 shopt -s histappend
-shopt -s checkwinsize
+[ -z "$NOGUI" ] && shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
