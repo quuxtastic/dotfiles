@@ -1,0 +1,22 @@
+#!/bin/bash
+# runs meld properly when invoked by git
+
+base=${1?First argument is 'base' file}
+theirs=${2?Sencond argument is 'theirs' file}
+mine=${3?Third argument is 'mine' file}
+merged=${4?Fourth argument is 'merged' file}
+
+version=$(meld --version | perl -pe '($_)=/([0-9]+([.][0-9]+)+)/' )
+
+if [[ "$version" < 1.7 ]]
+then
+    cat "$mine" > "$merged"
+    meld --label="Base=${base##*/}" "$base" \
+        --label="Mine->Merged=${merged##*/}" "$merged" \
+        --label="Theirs=${theirs##*/}" "$theirs"
+else
+    meld --label="Base=${base##*/}" "$base" \
+        --label="Mine=${mine##*/}" "$mine" \
+        --label="Merged=${merged##*/}" "$merged" \
+        --label="Theirs=${theirs##*/}" "$theirs"
+fi
