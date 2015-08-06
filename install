@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ ! -f "$HOME/.dotfiles" ]; then
+    echo "Your directories are set up wrong"
+    return 1
+fi
+cd "$HOME/.dotfiles"
+
+[ "$1" -eq "-u" ] && git pull
+
+stow bash
+stow bin
+stow svn
+stow vim
+
+# prevent stow from symlinking things it shouldn't
+mkdir -p "$HOME/.config/sublime-text-3/Packages/User"
+stow sublime
+
+stow git
+[ -f "$HOME/.gitignore_global" ] && \
+    git config --global core.excludesfile "$HOME/.gitignore_global"

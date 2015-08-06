@@ -1,0 +1,49 @@
+[include]
+    path=~/.gitconfig_local
+
+[core]
+    editor = subl -w
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+
+[merge]
+    tool = meld
+
+[status]
+    relativePaths = true
+
+[diff]
+    tool = diffuse
+    suppressBlankEmpty = true
+    mnemonicprefix = true
+
+[web]
+    browser = google-chrome
+
+[push]
+    default = tracking
+
+[branch]
+    autosetupmerge = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[alias]
+    l = log --no-merges
+    m = checkout master
+    pull = pull -ff-only
+
+    amend = commit --amend
+
+    whatrelease = name-rev --name-only
+    contains = branch --contains
+
+    findbug = "!sh -c 'git log --grep=^$1:' -"

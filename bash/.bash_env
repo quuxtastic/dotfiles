@@ -1,0 +1,14 @@
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
+
+export TERM=bash
+export GUI_TERM=roxterm
+export COLORTERM=yes
+
+export EDITOR=subl
+export PAGER=less
+
+export RSYNC_RSH=/usr/bin/ssh
+
+export MERGE_EDITOR=meld-glue.sh
+export SVN_MERGE=$MERGE_EDITOR
