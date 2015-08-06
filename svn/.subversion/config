@@ -1,0 +1,10 @@
+[miscellany]
+global-ignores =
+    *.o *.lo *.slo *.la *.al .libs *.so *.so.* *.a *.out
+    *.com *.exe *.dll *.lib *.dylib *.app
+    *.class
+    *.pyc *.pyo *.pyd __pycache__
+    *.rej *~ #*# .#* *.swp .sublime-workspace
+    .DS_Store* ._* .Spotlight-V100 .Trashes Thumbs.db
+    obj.x86_64 obj.i*86
+    CMakeCache.txt CMakeFiles CMakeScripts cmake_install.cmake install_manifest.txt
